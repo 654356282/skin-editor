@@ -1,0 +1,45 @@
+.layout {
+  height: 100vh;
+}
+.content {
+  background-color: #9f9b9b;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.size {
+  width: 375px;
+  background-color: #9f9b9b;
+  text-align: center;
+}
+.toolBar {
+  width: 375px;
+  background-color: white;
+  overflow: hidden;
+}
+.toolList {
+  width: 330px;
+  margin: auto;
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  li {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    margin: {
+      top: 20px;
+    };
+    cursor: pointer;
+  }
+}
+.paper {
+  background-color: white;
+  width: 375px;
+  height: 522px;
+  flex-grow: 0;
+}
+
