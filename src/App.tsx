@@ -18,7 +18,7 @@ export const App = (props: AppProps) => {
         <Switch>
           <Route path={'/editor'} component={Editor} exact />
           <Route path={'/login'} component={Login} exact />
-          <Redirect to={'login'} />
+          <Redirect to={'/editor'} />
         </Switch>
       </Router>
     </RootContainer.Provider>

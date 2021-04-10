@@ -1,8 +1,8 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './Editor.module.scss';
 import { Layout, InputNumber } from 'antd';
 import { px } from '@/utils/view';
-import SkinBase from '@/templates/SkinBase';
+import Square from '@/components/Square';
 
 const { Header, Sider, Content } = Layout;
 
@@ -11,19 +11,11 @@ export interface EditorProps {}
 const Editor: FC<EditorProps> = () => {
   const [paperSize, setPaperSize] = useState({ width: 375, height: 825 });
 
-  const domsRef = useRef<HTMLDivElement[]>([]);
-
   function handleChangeSize(size: { width: number; height: number }) {
     setPaperSize(size);
   }
 
   function handleClick(e: React.MouseEvent) {}
-
-  useEffect(() => {
-    domsRef.current.forEach(dom => {
-      new SkinBase(dom);
-    });
-  }, []);
 
   return (
     <Layout className={styles.layout}>
@@ -64,12 +56,9 @@ const Editor: FC<EditorProps> = () => {
                 height: px(paperSize.height),
               }}>
               <div id="app">
-                <div
-                  className={styles.square}
-                  ref={node => {
-                    console.log('执行了');
-                    domsRef.current.push(node!);
-                  }}
+                <Square
+                  canvasHeight={paperSize.height}
+                  canvasWidth={paperSize.width}
                 />
               </div>
             </Content>
